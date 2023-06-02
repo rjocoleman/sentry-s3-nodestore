@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "sentry-s3-nodestore"
+version = "1.0.0"
+authors = [
+    {name = "Robert Coleman", email = "pypi@robert.net.nz"}
+]
+description = "A Sentry extension to add S3 (and S3-like) object storage as a NodeStore backend"
+readme = "README.md"
+classifiers = [
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "boto3 >= 1.22, < 2.0",
+]
+
+[project.urls]
+Source = "https://github.com/rjocoleman/sentry-s3-nodestore"
+
+[project.optional-dependencies]
+tests = [
+    "pytest >= 6.2, < 7.0",
+    "moto >= 4, < 5",
+    "pytz",
+    "sentry >= 21.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["src"]
